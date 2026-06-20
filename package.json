@@ -1,38 +1,27 @@
 {
   "name": "blog",
-  "homepage": "https://chan4lk.github.io/blog",
-  "version": "0.1.0",
+  "homepage": "https://bistecglobal.github.io/blog",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.3",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "apollo-boost": "^0.4.7",
-    "gh-pages": "^2.2.0",
-    "graphql": "^14.5.8",
-    "markdown-to-jsx": "^6.10.3",
-    "medium.css": "^1.0.2",
-    "moment": "^2.24.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-ga": "^2.7.0",
-    "react-reactions": "github:randomdipesh/react-reactions",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
-    "react-syntax-highlighter": "^12.2.1",
-    "reading-time": "^1.2.0"
+    "@apollo/client": "^3.11.8",
+    "graphql": "^16.9.0",
+    "markdown-to-jsx": "^7.5.0",
+    "moment": "^2.30.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "react-syntax-highlighter": "^15.6.1",
+    "reading-time": "^1.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^5.4.21"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
