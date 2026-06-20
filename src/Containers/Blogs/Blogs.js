@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ApolloClient from "apollo-boost";
-import { gql } from "apollo-boost";
-import BlogHome from "../BlogPost/BlogPost";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Header from "../../Components/Header/Header";
 import BlogCard from "../../Components/BlogCard/BlogCard";
 import { config } from "../../config";
@@ -16,13 +14,10 @@ function Blogs() {
   function getBlogsFromGithubIssues() {
     const client = new ApolloClient({
       uri: "https://api.github.com/graphql",
-      request: operation => {
-        operation.setContext({
-          headers: {
-            authorization: `Bearer ${atob(config.githubConvertedToken)}`
-          }
-        });
-      }
+      headers: {
+        authorization: `Bearer ${config.githubToken}`
+      },
+      cache: new InMemoryCache()
     });
 
     client
@@ -58,13 +53,10 @@ function Blogs() {
         `
       })
       .then(result => {
-        setBlogsFunction(result.data.repository.issues.nodes);
+        setBlogs(result.data.repository.issues.nodes);
       });
   }
 
-  function setBlogsFunction(array) {
-    setBlogs(array);
-  }
   return (
     <div>
       <Header />

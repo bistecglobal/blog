@@ -1,20 +1,17 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import Blogs from "./Containers/Blogs/Blogs"
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Blogs from "./Containers/Blogs/Blogs";
 import BlogHome from "./Containers/BlogPost/BlogPost";
 
-var createBrowserHistory = require("history").createBrowserHistory;
-const history = createBrowserHistory();
-
-
-const Routes = () => {
+const AppRoutes = () => {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={Blogs} /> 
-        <Route exact path="/blog/:title/:issueNumber" component={BlogHome}/>
-      </Switch>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Blogs />} />
+        <Route path="/blog/:title/:issueNumber" element={<BlogHome />} />
+      </Routes>
     </Router>
   );
 };
-export default Routes;
+
+export default AppRoutes;
